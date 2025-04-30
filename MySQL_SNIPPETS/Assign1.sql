@@ -85,3 +85,49 @@ ALTER TABLE EMPLOYEE add(working_hr time,breakfast varchar(20),lunch varchar(20)
 alter table employee drop investment;
 alter table employee rename column project_name to project_team;
 alter table employee modify projects varchar(10);
+
+INSERT INTO EMPLOYEE 
+(employee_id, employee_name, employee_age, shifts, salary, bonus, company, field, projects, project_team)
+VALUES 
+(1, 'Dhanush', 22, 'night', 20000, 5000, 'Onus Works', 'SAP', '2', 'Cloning'),
+(2, 'Skanda', 21, 'day', 20000, 5000, 'xworkz', 'java', '4', 'bike sells'),
+(3, 'Sudeep', 20, 'mid', 30000, 5000, 'amazon', 'backend', '6', 'water resource'),
+(4, 'Sagar', 24, 'night', 18000, 5000, 'google', 'html', '2', 'agriculture'),
+(5, 'Harsha', 23, 'day', 25000, 5000, 'microsoft', 'devops', '8', 'development');
+
+select * from EMPLOYEE;
+
+UPDATE EMPLOYEE 
+SET employee_name = 'Skanda M V' 
+WHERE employee_id = 2;
+
+update EMPLOYEE 
+Set salary=50000
+where employee_id in(1,3,5);
+
+update EMPLOYEE 
+Set salary=30000
+where employee_id not in(1,3,5);
+
+update EMPLOYEE 
+Set company='TCS'
+where employee_id between 2 and  5;
+
+update EMPLOYEE 
+Set company='Wipro'
+where employee_id not between 2 and  4;
+
+delete from employee
+where employee_age>23 or shifts='afternon';
+
+delete from employee
+where employee_age>=23 and field='devops';
+
+-- Retrieve
+select * from employee
+where field='SAP';
+
+select * from employee
+where field in ('SAP','html');
+
+
